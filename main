@@ -1,0 +1,24 @@
+// ==UserScript==
+// @name         OutLook.com remove ad
+// @namespace    http://tampermonkey.net/
+// @version      0.1
+// @description  try to take over the world!
+// @author       You
+// @match        https://outlook.live.com/mail/0/*
+// @require    http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js
+// @icon         data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+// @grant        none
+// ==/UserScript==
+
+(function() {
+    setTimeout(loadout, 1000);
+    function loadout() {
+        var result;
+        result = $('[class^=_1fti_]');
+        if(result.length < 1) {
+            setTimeout(loadout, 1000);
+        } else {
+            result[0].remove();
+        }
+    }
+})();
